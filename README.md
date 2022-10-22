@@ -1,3 +1,30 @@
+# JSignPdf for moj.go.jp
+/w https://github.com/ys3669/OpenPDF
+
+```
+<<
+  /ByteRange [
+    0
+    197
+    30199
+    506751
+  ]
+  /ContactInfo (contact)
+  /Contents <--DER-encoded PKCS#7 binary data object-->
+  /Filter /Adobe.PPKLite
+  /Location (location)
+  /M (D:20221023044201+09'00')
+  /Name (namae)
+  /Reason (jpki test)
+  /SubFilter /adbe.pkcs7.detached
+  /Type /Sig
+>>
+```
+
+Original README.md below
+
+---
+
 # JSignPdf
 
 [![Download JSignPdf](https://img.shields.io/sourceforge/dm/jsignpdf.svg)](https://sourceforge.net/projects/jsignpdf/files/latest/download)

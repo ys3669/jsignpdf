@@ -223,6 +223,8 @@ public class Constants {
     /**
      * Property name.
      */
+    public static final String PROPERTY_NAME = "signature.name";
+
     public static final String PROPERTY_REASON = "signature.reason";
     /**
      * Property name.
@@ -307,6 +309,9 @@ public class Constants {
 
     public static final String ARG_SIGNER_NAME = "sn";
     public static final String ARG_SIGNER_NAME_LONG = "signer-name";
+
+    public static final String ARG_NAME = "n";
+    public static final String ARG_NAME_LONG = "name";
 
     public static final String ARG_REASON = "r";
     public static final String ARG_REASON_LONG = "reason";

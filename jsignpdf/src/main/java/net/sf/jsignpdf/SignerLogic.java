@@ -245,6 +245,11 @@ public class SignerLogic implements Runnable {
 
             final PdfSignatureAppearance sap = stp.getSignatureAppearance();
             sap.setCrypto(key, chain, null, PdfSignatureAppearance.WINCER_SIGNED);
+            final String name = options.getName();
+            if (StringUtils.isNotEmpty(name)) {
+                LOGGER.info(RES.get("console.setName", name));
+                sap.setisNotCommonName(name);
+            }
             final String reason = options.getReason();
             if (StringUtils.isNotEmpty(reason)) {
                 LOGGER.info(RES.get("console.setReason", reason));
@@ -302,6 +307,7 @@ public class SignerLogic implements Runnable {
                     replacements.put(L2TEXT_PLACEHOLDER_CONTACT, StringUtils.defaultString(contact));
                     final String l2text = StrSubstitutor.replace(options.getL2Text(), replacements);
                     sap.setLayer2Text(l2text);
+                    LOGGER.info(RES.get("305:"+l2text));
                 } else {
                     final StringBuilder buf = new StringBuilder();
                     buf.append(RES.get("default.l2text.signedBy")).append(" ").append(signer).append('\n');
@@ -311,6 +317,7 @@ public class SignerLogic implements Runnable {
                     if (StringUtils.isNotEmpty(location))
                         buf.append('\n').append(RES.get("default.l2text.location")).append(" ").append(location);
                     sap.setLayer2Text(buf.toString());
+                    LOGGER.info("315:" + sap.getLayer2Text());
                 }
                 if (FontUtils.getL2BaseFont() != null) {
                     sap.setLayer2Font(new Font(FontUtils.getL2BaseFont(), options.getL2TextFontSize()));
@@ -337,6 +344,9 @@ public class SignerLogic implements Runnable {
 
             LOGGER.info(RES.get("console.processing"));
             final PdfSignature dic = new PdfSignature(PdfName.ADOBE_PPKLITE, new PdfName("adbe.pkcs7.detached"));
+            if (!StringUtils.isEmpty(name)) {
+                dic.setName(sap.getisNotCommonName());
+            }
             if (!StringUtils.isEmpty(reason)) {
                 dic.setReason(sap.getReason());
             }

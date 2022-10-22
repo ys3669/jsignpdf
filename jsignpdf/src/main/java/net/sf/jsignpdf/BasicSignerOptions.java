@@ -69,6 +69,7 @@ public class BasicSignerOptions {
     private String inFile;
     private String outFile;
     private String signerName;
+    private String name;
     private String reason;
     private String location;
     private String contact;
@@ -148,6 +149,7 @@ public class BasicSignerOptions {
         setKeyIndex(props.getAsInt(Constants.PROPERTY_KEY_INDEX, Constants.DEFVAL_KEY_INDEX));
         setInFile(props.getProperty(Constants.PROPERTY_INPDF));
         setOutFile(props.getProperty(Constants.PROPERTY_OUTPDF));
+        setName(props.getProperty(Constants.PROPERTY_NAME));
         setReason(props.getProperty(Constants.PROPERTY_REASON));
         setLocation(props.getProperty(Constants.PROPERTY_LOCATION));
         setContact(props.getProperty(Constants.PROPERTY_CONTACT));
@@ -237,6 +239,7 @@ public class BasicSignerOptions {
         props.setProperty(Constants.PROPERTY_KEY_INDEX, getKeyIndex());
         props.setProperty(Constants.PROPERTY_INPDF, getInFile());
         props.setProperty(Constants.PROPERTY_OUTPDF, getOutFile());
+        props.setProperty(Constants.PROPERTY_NAME, getName());
         props.setProperty(Constants.PROPERTY_REASON, getReason());
         props.setProperty(Constants.PROPERTY_LOCATION, getLocation());
         props.setProperty(Constants.PROPERTY_CONTACT, getContact());
@@ -428,6 +431,14 @@ public class BasicSignerOptions {
 
     public void setSignerName(final String signerName) {
         this.signerName = signerName;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(final String name) {
+        this.name = name;
     }
 
     public String getReason() {

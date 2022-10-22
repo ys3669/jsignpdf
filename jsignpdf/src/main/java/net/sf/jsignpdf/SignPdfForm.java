@@ -324,6 +324,7 @@ public class SignPdfForm extends javax.swing.JFrame implements SignResultListene
         options.setPdfUserPwd(pfPdfUserPwd.getPassword());
         options.setPdfEncryptionCertFile(tfEncCertFile.getText());
         options.setOutFile(tfOutPdfFile.getText());
+        options.setName(tfName.getText());
         options.setReason(tfReason.getText());
         options.setLocation(tfLocation.getText());
         options.setContact(tfContact.getText());
@@ -1419,6 +1420,7 @@ public class SignPdfForm extends javax.swing.JFrame implements SignResultListene
     private javax.swing.JTextField tfLocation;
     private javax.swing.JTextField tfOutPdfFile;
     private javax.swing.JTextField tfReason;
+    private javax.swing.JTextField tfName;
     // End of variables declaration//GEN-END:variables
 
 }
